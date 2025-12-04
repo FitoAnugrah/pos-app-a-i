@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const { Pool } = require('pg'); // CUKUP SATU KALI SAJA
+const { Pool } = require('pg'); // HANYA BOLEH ADA SATU KALI
 require('dotenv').config();
 
 const app = express();
@@ -9,26 +9,16 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // =========================================
-// 1. KONEKSI DATABASE (VERSI FINAL & CLOUD READY)
+// KONEKSI DATABASE (VERSI FINAL - RAILWAY)
 // =========================================
-const { Pool } = require('pg');
-require('dotenv').config();
-
-// Ambil Link Database dari Railway
 const connectionString = process.env.DATABASE_URL;
 
-// Cek apakah kode ini jalan di Cloud (Railway) atau di Laptop?
-// Jika ada DATABASE_URL, berarti di Cloud.
 const pool = new Pool({
     connectionString: connectionString ? connectionString : undefined,
-    // Jika connectionString kosong (di laptop), dia akan cari settingan default.
-    // TAPI karena Anda sudah setting variabel di Railway, dia akan pakai connectionString.
-
-    // Wajib pakai SSL di Railway
     ssl: connectionString ? { rejectUnauthorized: false } : false
 });
 
-// Tes Koneksi
+// Tes Koneksi (Hanya log, tidak bikin crash)
 pool.connect((err) => {
     if (err) {
         console.error('❌ Gagal konek Database:', err.message);
