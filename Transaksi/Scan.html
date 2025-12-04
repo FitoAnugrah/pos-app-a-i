@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pindai Barang</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="Scan.css">
+</head>
+
+<body>
+
+    <div class="mobile-screen">
+
+        <div class="simple-header">
+            <a href="../Homepage/Homepage.html" class="back-btn">
+                <i class="fas fa-chevron-left"></i>
+            </a>
+            <h3>Pindai Barang</h3>
+            <div style="width: 20px;"></div>
+        </div>
+
+        <div class="content-padding">
+
+            <div class="camera-container">
+                <video id="videoFeed" autoplay playsinline></video>
+
+                <div class="camera-placeholder" id="camPlaceholder">
+                    <i class="fas fa-camera"></i>
+                </div>
+            </div>
+
+            <div class="form-group-scan">
+                <label>ID Barang</label>
+                <input type="text" class="input-field scan-input" placeholder="Contoh: 102938">
+            </div>
+
+            <div class="form-group-scan">
+                <label>Kuantitas</label>
+                <input type="number" class="input-field scan-input" placeholder="0" value="1">
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn-login btn-green-dark">
+                    TAMBAHKAN KE KERANJANG
+                </button>
+
+                <button class="btn-login btn-blue-soft" onclick="window.location.href='Checkout.html'">
+                    SELESAIKAN ORDER
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="Scan.js"></script>
+</body>
+
+</html>

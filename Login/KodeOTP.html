@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verifikasi OTP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="KodeOTP.css">
+</head>
+
+<body>
+
+    <div class="login-container">
+        <div class="logo-icon" style="background-color: #e3f9e5; color: #4CD964; box-shadow: none;">
+            <i class="fas fa-shield-alt"></i>
+        </div>
+
+        <h2 class="brand-title" style="font-size: 24px;">Verifikasi Kode</h2>
+        <p class="tagline" style="margin-bottom: 30px;">
+            Masukkan 4 digit kode yang kami kirim ke <br>
+            <b id="tampilNomor">+62 8xx-xxxx-xxxx</b>
+        </p>
+
+        <div class="otp-container">
+            <input type="text" class="otp-box" maxlength="1" inputmode="numeric">
+            <input type="text" class="otp-box" maxlength="1" inputmode="numeric">
+            <input type="text" class="otp-box" maxlength="1" inputmode="numeric">
+            <input type="text" class="otp-box" maxlength="1" inputmode="numeric">
+        </div>
+
+        <button class="btn-login" style="margin-top: 30px;">VERIFIKASI</button>
+
+        <div class="footer-links">
+            <p style="font-weight: 400; text-transform: none; margin-bottom: 5px;">Belum terima kode?</p>
+            <a href="#" id="resendLink" style="font-weight: bold; text-decoration: none;">
+             Kirim Ulang (60s)
+             </a>
+        </div>
+    </div>
+
+    <script src="KodeOTP.js"></script>
+</body>
+
+</html>

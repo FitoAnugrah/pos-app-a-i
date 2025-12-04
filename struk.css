@@ -1,0 +1,155 @@
+/* Reset */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #555;
+    /* Latar gelap biar kertasnya kontras */
+    font-family: 'Courier New', Courier, monospace;
+    /* Font Kasir */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+
+/* Kertas Struk */
+
+.receipt {
+    background: white;
+    width: 300px;
+    /* Lebar standar kertas struk */
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    font-size: 12px;
+    color: #000;
+}
+
+
+/* Header */
+
+.receipt-header {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.store-logo {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 5px;
+    filter: grayscale(100%);
+    /* Biar hitam putih ala struk */
+}
+
+.store-name {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.divider {
+    text-align: center;
+    letter-spacing: 2px;
+    margin: 5px 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+
+/* Detail Row */
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3px;
+}
+
+.bold {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+
+/* List Barang */
+
+.item-row {
+    margin-bottom: 5px;
+}
+
+.item-name {
+    display: block;
+    font-weight: bold;
+}
+
+.item-math {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px;
+    /* Indentasi dikit */
+}
+
+
+/* Footer */
+
+.receipt-footer {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 10px;
+}
+
+
+/* Tombol Aksi */
+
+.action-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-print {
+    background: #2196F3;
+    color: white;
+}
+
+.btn-done {
+    background: #4CAF50;
+    color: white;
+}
+
+
+/* === MODE CETAK (PRINT) === */
+
+
+/* Ini agar saat diprint, tombol dan background hilang */
+
+@media print {
+    body {
+        background: none;
+        padding: 0;
+    }
+    .receipt {
+        width: 100%;
+        /* Penuhi kertas */
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+    }
+    .no-print {
+        display: none !important;
+        /* Sembunyikan tombol */
+    }
+}

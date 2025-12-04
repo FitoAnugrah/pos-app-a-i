@@ -1,0 +1,799 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 40px 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo-icon {
+    width: 80px;
+    height: 80px;
+    background-color: #4CD964;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    color: white;
+    font-size: 32px;
+    box-shadow: 0 4px 10px rgba(76, 217, 100, 0.3);
+}
+
+.brand-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 0;
+    letter-spacing: 2px;
+}
+
+.brand-subtitle {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.text-green {
+    color: #4CD964;
+}
+
+.text-blue {
+    color: #2196F3;
+}
+
+.text-black {
+    color: #000000;
+}
+
+.tagline {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    color: #000;
+}
+
+.form-group {
+    width: 100%;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+#toggleRegPassword {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #666;
+}
+
+#toggleConfirmPassword {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #666;
+}
+
+.input-field {
+    width: 100%;
+    padding: 15px 20px;
+    border: 1.5px solid #333;
+    border-radius: 50px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+    padding-right: 45px;
+}
+
+.input-field:focus {
+    border-color: #4CD964;
+}
+
+.btn-login {
+    width: 80%;
+    padding: 12px;
+    background-color: #3cba2c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn-login:hover {
+    background-color: #32a022;
+}
+
+.footer-links {
+    font-size: 12px;
+    font-weight: 600;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #333;
+}
+
+.footer-links span {
+    margin: 0 5px;
+}
+
+
+/* =========================================
+   STYLE KHUSUS DASHBOARD / HOMEPAGE
+   ========================================= */
+
+.mobile-screen {
+    width: 100%;
+    max-width: 420px;
+    min-height: 100vh;
+    background-color: #ffffff;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+    .mobile-screen {
+        border: none;
+        border-radius: 0%;
+        box-shadow: 0 0 0px rgba(0, 0, 0, 0.05);
+    }
+}
+
+
+/* 1. Header Styles */
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.menu-btn i {
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+}
+
+.logo-text {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.logo-text .small-text {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+    color: #333;
+}
+
+.profile-icon {
+    width: 45px;
+    height: 45px;
+    background-color: #4CD964;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    box-shadow: 0 4px 10px rgba(76, 217, 100, 0.4);
+    cursor: pointer;
+}
+
+
+/* 2. Banner Styles */
+
+.welcome-banner {
+    margin: 30px 25px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    border-left: 6px solid #89C4F4;
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* Efek hiasan background biru pudar di kiri banner */
+
+.welcome-banner::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 10px;
+    background: linear-gradient(to right, #e3f2fd, transparent);
+}
+
+.banner-content p {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.banner-content .sub-text {
+    font-size: 11px;
+    font-weight: 500;
+    color: #666;
+    margin-bottom: 0;
+}
+
+.fw-bold {
+    font-weight: 800;
+}
+
+
+/* 3. Grid Menu Styles */
+
+.menu-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 35px;
+    gap: 25px;
+}
+
+.menu-card {
+    background: white;
+    width: 45%;
+    aspect-ratio: 1 / 1;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.menu-card:active {
+    transform: scale(0.95);
+}
+
+.menu-card.full-center {
+    width: 45%;
+    margin: 0 auto;
+}
+
+.menu-card h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 15px;
+    color: #333;
+}
+
+.icon-box {
+    width: 60px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-size: 32px;
+}
+
+
+/* Warna-warna Icon sesuai gambar referensi */
+
+.blue-soft {
+    /* Kasir: Biru muda pudar */
+    color: #5D9CEC;
+    background: #E4F1FE;
+    border-bottom: 4px solid #4A89DC;
+}
+
+.blue-medium {
+    /* Laporan: Biru sedang */
+    color: #4A89DC;
+    background: #E4F1FE;
+    border-bottom: 4px solid #3b6db3;
+}
+
+.blue-solid {
+    /* Informasi: Biru Solid Kotak */
+    background: #2196F3;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(33, 150, 243, 0.4);
+}
+
+
+/* Tambahkan di paling bawah style.css */
+
+
+/* 1. Pastikan icon punya transisi */
+
+.menu-card .icon-box {
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+
+/* 2. Saat Card Ditekan, Icon mengecil drastis */
+
+.menu-card:active .icon-box {
+    transform: scale(0.8) rotate(-10deg);
+    /* Mengecil & miring sedikit */
+}
+
+
+/* 3. Saat Card Ditekan, Cardnya sendiri agak turun */
+
+.menu-card:active {
+    transform: translateY(5px);
+    /* Turun ke bawah sedikit */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* Bayangan menipis */
+}
+
+
+/* =========================================
+   STYLE HALAMAN SCAN BARANG
+   ========================================= */
+
+
+/* Header Sederhana (Back + Judul) */
+
+.simple-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+.back-btn {
+    color: #333;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.simple-header h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.content-padding {
+    padding: 0 25px 30px 25px;
+    /* Padding konten utama */
+}
+
+
+/* Area Kamera */
+
+.camera-container {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    /* Membuat kotak persegi sempurna */
+    background-color: #e0e0e0;
+    /* Warna abu-abu default */
+    border-radius: 4px;
+    /* Sudut sedikit kotak sesuai gambar */
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#videoFeed {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Agar video full memenuhi kotak */
+    display: none;
+    /* Disembunyikan dulu sebelum kamera nyala */
+}
+
+.camera-placeholder {
+    font-size: 60px;
+    color: #333;
+}
+
+
+/* Input Styles yang sedikit lebih kotak (sesuai gambar scan) */
+
+.form-group-scan {
+    margin-bottom: 15px;
+}
+
+.form-group-scan label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #666;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.input-field.scan-input {
+    border-radius: 8px;
+    /* Tidak terlalu bulat (pill), tapi rounded rectangle */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 12px 15px;
+    height: auto;
+}
+
+
+/* Tombol Khusus Halaman Scan */
+
+.action-buttons {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn-green-dark {
+    background-color: #008f4c;
+    /* Hijau lebih tua sesuai gambar */
+    border-radius: 8px;
+    /* Sudut kotak */
+    font-size: 14px;
+    margin: 0;
+    /* Reset margin lama */
+    width: 100%;
+    box-shadow: none;
+}
+
+.btn-blue-soft {
+    background-color: #6b9cf2;
+    /* Biru muda sesuai gambar (Selesaikan Order) */
+    border-radius: 8px;
+    font-size: 14px;
+    margin: 0;
+    width: 100%;
+    box-shadow: none;
+}
+
+
+/* =========================================
+   STYLE HALAMAN CHECKOUT
+   ========================================= */
+
+
+/* 1. Baris Opsi (ID & Pembayaran) */
+
+.checkout-options {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.option-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-top: 1px solid #f0f0f0;
+    cursor: pointer;
+}
+
+.opt-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.opt-value {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    color: #999;
+}
+
+
+/* 2. List Barang */
+
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.cart-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f9f9f9;
+}
+
+
+/* Gambar Produk (Kotak Abu-abu) */
+
+.item-img {
+    width: 60px;
+    height: 60px;
+    background-color: #eee;
+    border-radius: 10px;
+    margin-right: 15px;
+    /* Placeholder gambar biar estetik */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: #bbb;
+}
+
+
+/* Detail Teks Tengah */
+
+.item-details {
+    flex: 1;
+    /* Mengisi ruang sisa */
+    display: flex;
+    flex-direction: column;
+}
+
+.item-brand {
+    font-size: 10px;
+    color: #999;
+}
+
+.item-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+    margin: 2px 0;
+}
+
+.item-desc {
+    font-size: 10px;
+    color: #666;
+}
+
+.item-qty {
+    font-size: 11px;
+    font-weight: 500;
+    color: #333;
+    margin-top: 5px;
+}
+
+
+/* Harga Kanan */
+
+.item-price {
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+}
+
+
+/* 3. Total & Footer */
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.checkout-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    /* Rata kanan */
+    gap: 10px;
+}
+
+.link-small {
+    font-size: 12px;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+
+/* =========================================
+   STYLE MODAL PEMBAYARAN
+   ========================================= */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    /* Latar belakang gelap transparan */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    width: 90%;
+    max-width: 350px;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.modal-content h3 {
+    margin-bottom: 20px;
+}
+
+.payment-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Membagi jadi 2 kolom sama besar */
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.payment-options {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.pay-card {
+    padding: 15px;
+    border: 2px solid #eee;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 13px;
+    /* Ukuran font disesuaikan biar muat */
+    transition: 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    /* Jarak antara ikon dan tulisan */
+}
+
+.pay-card i {
+    font-size: 20px;
+    /* Ukuran ikon */
+    margin-bottom: 5px;
+}
+
+
+/* Saat metode dipilih */
+
+
+/* Style saat dipilih (Border Hijau) */
+
+.pay-card.selected {
+    border-color: #4CD964;
+    background-color: #e3f9e5;
+    color: #008f4c;
+}
+
+.input-group-pay {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.input-group-pay input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+.info-kembalian {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-cancel,
+.btn-confirm {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-cancel {
+    background: #eee;
+    color: #333;
+}
+
+.btn-confirm {
+    background: #4CD964;
+    color: white;
+}
+
+
+/* =========================================
+   STYLE RINCIAN PEMBAYARAN
+   ========================================= */
+
+.payment-details-box {
+    margin-bottom: 30px;
+    padding-top: 10px;
+    border-top: 1px dashed #ddd;
+    /* Garis putus-putus pemisah */
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 13px;
+    color: #666;
+    font-weight: 500;
+}
+
+
+/* Biar angka uangnya agak tebal */
+
+.detail-row span:last-child {
+    font-weight: 700;
+    color: #333;
+}

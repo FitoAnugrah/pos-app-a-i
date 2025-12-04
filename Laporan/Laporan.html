@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Laporan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="Laporan.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+
+    <div class="mobile-screen gray-bg">
+
+        <div class="header-grid">
+            <a href="../Homepage/Homepage.html" onclick="history.back()" class="btn-back-arrow">
+                <i class="fas fa-chevron-left"></i>
+            </a>
+            <div class="header-title">Laporan</div>
+            <div class="header-spacer"></div>
+        </div>
+
+        <div class="main-white-card">
+
+            <div class="banner-floating">
+                <p>PANTAU PENDAPATAN HARIAN, MINGGUAN, HINGGA BULANAN DAN PRODUK APA SAJA YANG TERLARIS DI SINI</p>
+            </div>
+
+            <div class="menu-list-container">
+
+                <div class="menu-row" onclick="window.location.href='Laporan-penjualan.html'">
+                    <div class="menu-icon-img">
+                        <i class="fas fa-chart-bar" style="color: #2196F3; font-size: 28px;"></i>
+                    </div>
+                    <div class="menu-text">Laporan Penjualan</div>
+                    <div class="menu-arrow"><i class="fas fa-chevron-right"></i></div>
+                </div>
+
+                <div class="separator-line"></div>
+
+                <div class="menu-row" onclick="window.location.href='laporan-terlaris.html'">
+                    <div class="menu-icon-img">
+                        <i class="fas fa-medal" style="color: #FFC107; font-size: 28px;"></i>
+                    </div>
+                    <div class="menu-text">Laporan Produk Terlaris</div>
+                    <div class="menu-arrow"><i class="fas fa-chevron-right"></i></div>
+                </div>
+
+                <div class="separator-line"></div>
+
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

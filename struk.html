@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cetak Struk</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="struk.css"> </head>
+
+<body>
+
+    <div class="receipt">
+
+        <div class="receipt-header">
+            <img src="https://cdn-icons-png.flaticon.com/512/869/869636.png" alt="Logo Toko" class="store-logo">
+            <h2 class="store-name">TOKO SRC A'I</h2>
+            <p class="store-address">Jl. Raya Sumelap, Sumelap, Kec. Tamansari, Tasikmalaya</p>
+            <p class="store-phone">Telp: 0812-3456-7890</p>
+        </div>
+
+        <div class="divider">================================</div>
+
+        <div class="transaction-details">
+            <div class="detail-row">
+                <span>No. Faktur</span>
+                <span id="strukFaktur">INV-000</span>
+            </div>
+            <div class="detail-row">
+                <span>Tanggal</span>
+                <span id="strukTanggal">01/01/2025 12:00</span>
+            </div>
+            <div class="detail-row">
+                <span>Kasir</span>
+                <span id="strukKasir">Admin</span>
+            </div>
+            <div class="detail-row">
+                <span>Pelanggan</span>
+                <span id="strukMember">-</span>
+            </div>
+        </div>
+
+        <div class="divider">--------------------------------</div>
+
+        <div id="strukListBarang">
+        </div>
+
+        <div class="divider">--------------------------------</div>
+
+        <div class="totals-section">
+            <div class="detail-row bold">
+                <span>TOTAL</span>
+                <span id="strukTotal">Rp 0</span>
+            </div>
+            <div class="detail-row">
+                <span id="labelMetode">Tunai</span>
+                <span id="strukBayar">Rp 0</span>
+            </div>
+            <div class="detail-row">
+                <span>Kembalian</span>
+                <span id="strukKembalian">Rp 0</span>
+            </div>
+        </div>
+
+        <div class="divider">================================</div>
+
+        <div class="receipt-footer">
+            <p>Terima Kasih atas kunjungan Anda!</p>
+            <p>Barang yang sudah dibeli tidak dapat ditukar/dikembalikan.</p>
+        </div>
+
+    </div>
+
+    <div class="action-buttons no-print">
+        <button onclick="window.print()" class="btn-print">
+    <i class="fas fa-print"></i> Cetak PDF
+</button>
+
+        <button onclick="cetakRawBT()" class="btn-print" style="background-color: #ff9800;">
+    <i class="fas fa-bolt"></i> Cetak Cepat
+</button>
+
+        <script>
+            function cetakRawBT() {
+                // Ambil isi struk
+                var isiStruk = document.querySelector('.receipt').innerHTML;
+
+                // Format khusus agar dibaca RawBT
+                // Kita kirim teks HTML-nya ke aplikasi RawBT
+                var rawbtLink = 'rawbt:data:text/html;base64,' + btoa(isiStruk);
+
+                // Buka aplikasi RawBT
+                window.location.href = rawbtLink;
+            }
+        </script>
+
+        <script src="struk.js"></script>
+</body>
+
+</html>

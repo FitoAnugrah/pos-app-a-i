@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Penjualan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="Laporan-penjualan.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <div class="mobile-screen gray-bg">
+
+        <div class="header-grid">
+            <a href="Laporan.html" class="btn-back-arrow">
+                <i class="fas fa-chevron-left"></i>
+            </a>
+            <div class="header-title">Laporan Penjualan</div>
+            <div class="header-spacer"></div>
+        </div>
+
+        <div class="main-white-card" style="padding-bottom: 50px;">
+
+            <div class="top-controls">
+                <div class="dropdown-wrapper">
+                    <select class="custom-select" id="filterWaktu" onchange="loadLaporan()">
+                    </select>
+                    <i class="fas fa-caret-down"></i>
+                </div>
+                <div class="download-icon">
+                    <a href="Link Google Drive"></a>
+                    <i class="fas fa-cloud-download-alt"></i>
+                </div>
+            </div>
+
+            <div class="bordered-card big-card">
+                <h2 class="total-amount" id="textOmset">Rp 0</h2>
+                <p class="sub-label">Total Penjualan</p>
+                <div class="badge-increase" id="badgeGrowth">
+                    <i class="fas fa-minus"></i> 0% <span style="color:#666; font-weight:400; margin-left:5px;">dari bulan lalu</span>
+                </div>
+            </div>
+
+            <div class="bordered-card small-card">
+                <p class="sub-label">Transaksi :</p>
+                <h4 class="stat-value" id="textTransaksi">0</h4>
+            </div>
+
+            <div class="bordered-card small-card">
+                <p class="sub-label">Keuntungan :</p>
+                <h4 class="stat-value" id="textKeuntungan">Rp 0</h4>
+            </div>
+
+            <div class="bordered-card chart-card">
+                <p class="chart-title">Tren Penjualan</p>
+
+                <div style="height: 120px; width: 100%;">
+                    <canvas id="salesChart"></canvas>
+                </div>
+            </div>
+
+            <div class="history-list" id="listRiwayatContainer">
+                <p style="text-align:center; font-size:12px; color:#999; margin-top:20px;">Memuat data...</p>
+            </div>
+
+        </div>
+    </div>
+    <script src="Laporan-penjualan.js"></script>
+</body>
+
+</html>

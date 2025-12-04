@@ -1,0 +1,250 @@
+/* =========================================
+   STYLE KHUSUS HALAMAN TAMBAH PRODUK
+   ========================================= */
+
+
+/* Reset Dasar (Agar tidak konflik) */
+
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    /* Background Abu-abu Muda */
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+
+/* Container Utama (Layar HP) */
+
+.mobile-screen {
+    width: 100%;
+    max-width: 420px;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* --- HEADER --- */
+
+.header-grid {
+    display: grid;
+    grid-template-columns: 40px 1fr 40px;
+    align-items: center;
+    padding: 20px 25px;
+    background-color: #f5f5f5;
+}
+
+.header-title {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: #000;
+}
+
+.btn-back-arrow {
+    font-size: 20px;
+    color: #000;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+
+/* --- AREA KONTEN --- */
+
+.content-area {
+    padding: 10px 25px 40px 25px;
+}
+
+
+/* --- 1. KOTAK KAMERA BESAR --- */
+
+.camera-box-shadow {
+    background: white;
+    width: 100%;
+    height: 180px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    color: #1a1a1a;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+    /* Shadow Halus */
+    margin-bottom: 25px;
+}
+
+
+/* --- 2. BARIS INPUT (KIRI KANAN) --- */
+
+.row-inputs {
+    display: flex;
+    gap: 15px;
+    /* Jarak antar elemen */
+    margin-bottom: 5px;
+}
+
+
+/* --- 3. TOMBOL SCAN KOTAK --- */
+
+.scan-btn-box {
+    width: 110px;
+    height: 50px;
+    /* Samakan tingginya dengan input biasa */
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    /* Ubah jadi row biar icon dan teks nyamping */
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid #f9f9f9;
+    /* HAPUS margin-top yang lama */
+    margin-top: 0;
+}
+
+.scan-btn-box i {
+    font-size: 18px;
+    /* Kecilkan dikit */
+    margin-bottom: 2px;
+    /* Rapatkan */
+    color: #333;
+}
+
+.scan-btn-box span {
+    font-size: 9px;
+    font-weight: 600;
+    color: #333;
+}
+
+
+/* --- 4. INPUT WRAPPER --- */
+
+.input-wrapper {
+    flex: 1;
+    /* Mengisi sisa ruang */
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group-full {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Label Kecil */
+
+.input-wrapper label,
+.input-group-full label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 8px;
+    margin-left: 2px;
+}
+
+
+/* --- 5. STYLE INPUT (KARTU PUTIH) --- */
+
+.input-shadow {
+    width: 100%;
+    background: white;
+    border: none;
+    padding: 0 15px;
+    /* Padding kiri kanan saja */
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    font-size: 14px;
+    color: #333;
+    outline: none;
+    height: 50px;
+    /* Tinggi Fix agar sama dengan tombol scan */
+}
+
+.input-shadow::placeholder {
+    color: #bbb;
+}
+
+
+/* --- 6. ESTIMASI LABA --- */
+
+.laba-text {
+    text-align: right;
+    font-size: 11px;
+    font-weight: 600;
+    color: #4CD964;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+
+/* --- 7. TOMBOL SIMPAN --- */
+
+.btn-simpan {
+    width: 100%;
+    padding: 15px;
+    background-color: #3cba2c;
+    /* Hijau Tombol */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(60, 186, 44, 0.3);
+    margin-top: 10px;
+}
+
+.btn-simpan:active {
+    transform: scale(0.98);
+}
+
+
+/* Style untuk Preview Gambar */
+
+#previewImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Agar gambar tidak gepeng */
+    border-radius: 20px;
+    /* Sesuai sudut kotak */
+}
+
+
+/* Style Modal Scanner */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    /* Latar gelap */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keanggotaan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="info-member.css">
+    <link rel="stylesheet" href="../Tambah-produk.css"> </head>
+
+<body>
+
+    <div class="mobile-screen gray-bg">
+
+        <div class="header-grid">
+            <a href="informasi.html" class="btn-back-arrow"><i class="fas fa-chevron-left"></i></a>
+            <div class="header-title">Keanggotaan</div>
+            <div class="header-spacer"></div>
+        </div>
+
+        <div class="content-area">
+
+            <div class="stock-controls">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Cari Member..." onkeyup="filterMember()">
+                </div>
+                <button class="btn-add-green" onclick="window.location.href='../tambah-member.html'">
+                    TAMBAH MEMBER
+                </button>
+            </div>
+
+            <div id="memberContainer" class="member-list">
+                <p style="text-align:center; color:#999; margin-top:50px;">Memuat data...</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="detailMemberModal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <h3 style="margin-bottom: 5px;">Detail Member</h3>
+            <p id="detId" style="font-size:10px; color:#999; margin-bottom:20px;">ID: -</p>
+
+            <div class="input-group-full">
+                <label>Nama</label>
+                <input type="text" id="detNama" class="input-shadow">
+            </div>
+
+            <div class="input-group-full">
+                <label>No. HP</label>
+                <input type="text" id="detHp" class="input-shadow">
+            </div>
+
+            <div class="input-group-full">
+                <label>Alamat</label>
+                <input type="text" id="detAlamat" class="input-shadow">
+            </div>
+
+            <div style="background:#e3f9e5; padding:10px; border-radius:10px; margin-bottom:20px;">
+                <p style="font-size:12px; color:#333;">Total Belanja Seumur Hidup:</p>
+                <h3 id="detTotal" style="color:#4CD964; margin:0;">Rp 0</h3>
+            </div>
+
+            <div class="row-inputs">
+                <button class="btn-hapus" onclick="hapusMember()">
+                    <i class="fas fa-trash"></i>
+                </button>
+                <div style="width:10px;"></div>
+                <button class="btn-simpan" style="background:#ddd; color:#333; box-shadow:none;" onclick="tutupDetail()">Tutup</button>
+                <button class="btn-simpan" onclick="updateMember()">Simpan</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="info-member.js"></script>
+</body>
+
+</html>
