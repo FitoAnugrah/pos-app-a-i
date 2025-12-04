@@ -9,52 +9,31 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // =========================================
-// 1. KONEKSI DATABASE (VERSI CLOUD READY)
+// 1. KONEKSI DATABASE (VERSI FINAL & CLOUD READY)
 // =========================================
-const isProduction = process.env.NODE_ENV === 'production' || process.env.DATABASE_URL;
+const { Pool } = require('pg');
+require('dotenv').config();
+
+// Ambil Link Database dari Railway
 const connectionString = process.env.DATABASE_URL;
 
+// Cek apakah kode ini jalan di Cloud (Railway) atau di Laptop?
+// Jika ada DATABASE_URL, berarti di Cloud.
 const pool = new Pool({
     connectionString: connectionString ? connectionString : undefined,
-    ssl: isProduction ? { rejectUnauthorized: false } : false
+    // Jika connectionString kosong (di laptop), dia akan cari settingan default.
+    // TAPI karena Anda sudah setting variabel di Railway, dia akan pakai connectionString.
+
+    // Wajib pakai SSL di Railway
+    ssl: connectionString ? { rejectUnauthorized: false } : false
 });
 
+// Tes Koneksi
 pool.connect((err) => {
     if (err) {
         console.error('❌ Gagal konek Database:', err.message);
     } else {
-        console.log('✅ Berhasil konek ke Database!');
-    }
-});
-// ================== API ROUTES ==================
-
-// 1. API LOGIN (UPDATE: CEK VERIFIKASI)
-app.post('/api-login', async(req, res) => {
-    const { email, password } = req.body;
-    try {
-        const result = await pool.query(
-            'SELECT * FROM pengguna WHERE email = $1 AND password = $2', [email, password]
-        );
-
-        if (result.rows.length > 0) {
-            const user = result.rows[0];
-
-            //CEK APAKAH SUDAH VERIFIKASI OTP
-            if (user.is_verified === false) {
-                return res.json({
-                    status: 'failed',
-                    message: 'Akun belum diverifikasi! Silakan daftar ulang atau cek kode OTP.'
-                });
-            }
-
-            // Jika Aman
-            res.json({ status: 'success', data: user });
-            //JIKA TIDAK AMAN/SALAH
-        } else {
-            res.json({ status: 'failed', message: 'Email atau Password Salah' });
-        }
-    } catch (err) {
-        res.status(500).json({ error: err.message });
+        console.log('✅ BERHASIL KONEK KE DATABASE RAILWAY!');
     }
 });
 
