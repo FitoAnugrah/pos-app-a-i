@@ -26,21 +26,6 @@ pool.connect((err) => {
         console.log('✅ Berhasil konek ke Database!');
     }
 });
-// Tes Koneksi saat server nyala
-pool.connect((err) => {
-    if (err) {
-        console.error('❌ Gagal konek Database:', err.message);
-    } else {
-        console.log('✅ Berhasil konek ke Database!');
-    }
-});
-
-// MENGECEK KONEKSI DATABASE
-pool.connect((err) => {
-    if (err) console.error('❌ Gagal konek Database:', err.message);
-    else console.log('✅ Berhasil terhubung ke PostgreSQL!');
-});
-
 // ================== API ROUTES ==================
 
 // 1. API LOGIN (UPDATE: CEK VERIFIKASI)
