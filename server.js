@@ -42,12 +42,12 @@ app.get('/api-scan', async(req, res) => {
         if (result.rows.length > 0) {
             // Cek apakah produk aktif?
             if (result.rows[0].is_active === false) {
-                res.json({ status: 'not_found', message: 'Barang ini sudah dihapus (Arsip).' });
+                res.json({ status: 'not_found', message: ' ini produk udah dihapus (Arsip).' });
             } else {
                 res.json({ status: 'success', data: result.rows[0] });
             }
         } else {
-            res.json({ status: 'not_found', message: 'Barang tidak ditemukan' });
+            res.json({ status: 'not_found', message: 'produk tidak ditemukan' });
         }
     } catch (err) {
         res.status(500).json({ error: err.message });
@@ -134,7 +134,7 @@ app.post('/api-restore-produk', async(req, res) => {
                 tanggal_kadaluarsa = $5, gambar = $6, is_active = TRUE 
              WHERE kode_barcode = $7`, [nama, parseInt(harga_modal), parseInt(harga_jual), parseInt(stok), expired, gambar, kode_barcode]
         );
-        res.json({ status: 'success', message: 'Produk Lama Berhasil Diaktifkan Kembali!' });
+        res.json({ status: 'success', message: 'produk Lama Berhasil Diaktifkan Kembali!' });
     } catch (err) {
         res.status(500).json({ status: 'error', message: err.message });
     }
@@ -239,7 +239,7 @@ app.post('/api-transaksi', async(req, res) => {
         // 1. CEK STOK
         for (const item of items) {
             const cekStok = await client.query('SELECT stok, nama FROM produk WHERE id = $1', [item.id]);
-            if (cekStok.rows.length === 0) throw new Error(`Barang ID ${item.id} tidak ada!`);
+            if (cekStok.rows.length === 0) throw new Error(`produk ID ${item.id} tidak ada!`);
             if (cekStok.rows[0].stok < item.qty) throw new Error(`Stok ${cekStok.rows[0].nama} kurang!`);
         }
 
@@ -485,3 +485,8 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`🚀 Server berjalan di port ${PORT}`);
 });
+// Log Detektif
+console.log("---------------------------------------------------------");
+console.log("🔍 DEBUG VARIABLE DATABASE:");
+console.log("👉 DATABASE_URL ADA?", connectionString ? "✅ ADA (Terisi)" : "❌ KOSONG (Undefined)");
+console.log("---------------------------------------------------------");
