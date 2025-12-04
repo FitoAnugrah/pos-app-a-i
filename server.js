@@ -9,12 +9,32 @@ app.use(cors());
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ limit: '10mb', extended: true }));
 // UNTUK KONFIGURASI DATABASE
+// =========================================
+// 1. KONEKSI DATABASE (VERSI CLOUD READY)
+// =========================================
+const { Pool } = require('pg');
+require('dotenv').config(); // Pastikan ada ini
+
+// Cek apakah kita ada di Railway? (Punya DATABASE_URL)
+const isProduction = process.env.NODE_ENV === 'production' || process.env.DATABASE_URL;
+
+const connectionString = process.env.DATABASE_URL;
+// Jika di laptop, Anda bisa tambah: || 'postgresql://user:pass@localhost:5432/db_name'
+
 const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'db_pos',
-    password: 'anomali',
-    port: 5432,
+    connectionString: connectionString ? connectionString : undefined,
+    // Jika tidak ada connectionString (di laptop), dia akan cari settingan default (user/host/dll)
+    // Tapi di Railway, dia WAJIB pakai connectionString
+    ssl: isProduction ? { rejectUnauthorized: false } : false
+});
+
+// Tes Koneksi saat server nyala
+pool.connect((err) => {
+    if (err) {
+        console.error('❌ Gagal konek Database:', err.message);
+    } else {
+        console.log('✅ Berhasil konek ke Database!');
+    }
 });
 
 // MENGECEK KONEKSI DATABASE
